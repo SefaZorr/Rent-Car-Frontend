@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row" >
+        <div class="col-md-8">
+            <div id="carouselExampleIndicators" style="border: 1px solid rgb(84, 202, 157);" class="carousel slide"
+                data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div
+                      *ngFor="let carDetails of carDetail.carImagePath; let i = index"
+                      class="carousel-item {{ i == 0 ? 'active' : null }}"
+                    >
+                      <img [src]="carDetails" class="d-block w-100" alt="..." />
+                    </div>
+                  </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem">
+                <table style="border:1px solid rgb(84, 202, 157);" class="table">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Marka: </strong>{{carDetail.brandName}}</li>
+                        <li class="list-group-item"><strong>Renk: </strong>{{carDetail.colorName}}</li>
+                        <li class="list-group-item"><strong>Günlük Ücret: </strong>{{carDetail.dailyPrice}}
+                        </li>
+                        <li class="list-group-item"><strong>Yıl: </strong>{{carDetail.modelYear}}</li>
+                    </ul>
+                </table>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn  btn-success btn-lg">
+                        Kirala
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,44 @@
-<table class="table">
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="display: inline-block; margin-right: 8px; margin-bottom: 8px;" *ngFor="let car of cars; let i=index">
+        <div class="col">
+        <div class="card" style="width: 15rem;" >
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div
+                      *ngFor="let car of car.carImagePath; let i = index"
+                      class="carousel-item {{ i == 0 ? 'active' : null }}"
+                    >
+                      <img [src]="car" class="d-block w-100" alt="..." height="150px"/>
+                    </div>
+                  </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <div class="card-body">
+            <h5 class="card-title">{{car.brandName}}-{{car.carName}}</h5>
+            <h5 class="card-text">{{car.dailyPrice}}TL</h5>
+            <p class="card-text">Araç hakkında daha fazla bilgi almak için butona tıklayınız.</p>
+            <a routerLink="/cars/details/{{car.carId}}" class="btn btn-primary">Detay</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<!-- <table class="table">
     <thead>
         <tr>
             <th>Id</th>
             <th>Markaİsmi</th>
             <th>Model</th>
+            <th>ModelYılı</th>
             <th>Renkİsmi</th>
             <th>GünlükFiyat</th>
         </tr>
@@ -12,7 +47,8 @@
         <td>{{ car.carId }}</td>
         <td>{{ car.brandName }}</td>
         <td>{{ car.carName }}</td>
+        <td>{{ car.modelYear }}</td>
         <td>{{ car.colorName }}</td>
         <td>{{ car.dailyPrice }}</td>
     </tr>
-</table>
+</table> -->
